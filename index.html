@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="one">
+    <head>
+        <title>One</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/one.css">
+    </head>
+    <body ng-controller="MainCtrl as main">
+        <!-- main container -->
+        <div class="main-container">
+            <!-- left side bar(menu) -->
+            <div class='left-sidebar'>
+
+                <div class="logo" ng-click="main.setCurrentCategory(null)"></div>
+
+                <div class="v-gp1"></div>
+                <div class="v-gp1"></div>
+                <div class="v-gp1"></div>
+
+                <div class='full-w'>
+                    <ul class="menu">
+                        <li ng-repeat="category in main.categories" ng-click="main.setCurrentCategory(category)" ng-class='{"active":main.isCurrentCategory(category)}'>
+                            <a href='javascript:void(0);'>
+                                {{category.name}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>  <!-- left side bar(menu) ends -->
+
+            <!-- right container -->
+            <div class='right-sidebar' ng-init="heading = 'Simplimark'">
+                <!--
+                    <h1>{{heading}}</h1>
+                    <input type='text' ng-model="heading">
+                -->
+                <div class="v-gp2"></div>
+                <div class="v-gp2"></div>
+
+                <div style='display:table;width:100%;margin-bottom:20px;' ng-repeat="bookmark in main.bookmarks | filter:{category:main.currentCategory.name}">
+                    <div class='bookmark-container'>
+
+                        <div style='display:table-cell;vertical-align:middle;width:7%;'>
+                            <div class='edit-outer' ng-click="main.startEditing(bookmark);" ng-class='{"active":main.isEditingBookmark(bookmark)}'>
+                                <div class='edit-inner'></div>
+                            </div>
+                        </div>
+
+                        <div style='display:table-cell;vertical-align:middle;width:80%;'>
+                            <div class='bookmark'>
+                                <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+                            </div>
+                        </div>
+
+                        <div style='display:table-cell;vertical-align:middle;width:5%;'>
+                            <div class="close" ng-click="main.deleteBookmark(bookmark.id)">&times;</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div ng-if="main.shouldShowCreate()">
+                    <div class='addmore' ng-if="main.shouldShowCreateBookmark()" ng-click="main.startCreating()">
+                        <img src='images/plus16.png'/>
+                        &nbsp;Create a bookmark
+                    </div>
+                    <form ng-show="main.isCreating" ng-submit="main.createBookmark(main.newBookmark)">
+                        <div class="form-grp1">
+                            <label for="txtBookmarkTitle">Bookmark title</label>
+                            <input type="text" id="txtBookmarkTitle" ng-model="main.newBookmark.title" placeholder="Enter title"/>
+                        </div>
+                        <div class="form-grp1">
+                            <label for="txtBookmarkUrl">Bookmark URL</label>
+                            <input type="text" id="txtBookmarkUrl" ng-model="main.newBookmark.url" placeholder="Enter URL"/>
+                        </div>
+                        <div class="form-grp1">
+                            <button type="submit" class="btn-submit">Submit</button>
+                            <button type="button" class="btn-cancel" ng-click="main.cancelCreating()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <form ng-show="main.shouldShowEdit()" ng-submit="main.editBookmark(main.currentBookmark)">
+                    <div class="form-grp1">
+                        <label for="txtBookmarkTitle">Bookmark title</label>
+                        <input type="text" id="txtBookmarkTitle" ng-model="main.currentBookmark.title" placeholder="Enter title"/>
+                    </div>
+                    <div class="form-grp1">
+                        <label for="txtBookmarkUrl">Bookmark URL</label>
+                        <input type="text" id="txtBookmarkUrl" ng-model="main.currentBookmark.url" placeholder="Enter URL"/>
+                    </div>
+                    <div class="form-grp1">
+                        <button type="submit" class="btn-submit">Submit</button>
+                        <button type="button" class="btn-cancel" ng-click="main.cancelEditing()">Cancel</button>
+                    </div>
+                </form>
+
+            </div>  <!-- right container ends -->
+
+        </div>  <!-- main container ends -->
+
+        <!-- external js -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="js/one.js"></script>
+
+    </body>
+</html>

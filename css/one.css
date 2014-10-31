@@ -1,0 +1,214 @@
+* {
+    padding:0;
+    margin:0;
+    font-size:14px;
+    font-family:arial;
+}
+
+html, body, div.main-container {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+div, input {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    margin: 20px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+div.left-sidebar, div.right-sidebar {
+    width:15%;
+    height:100%;
+    overflow:auto;
+    float:left;
+    background-color:#0A3151;
+    padding-top:20px;
+}
+
+div.right-sidebar {
+    width:85%;
+    background-color:#fff4e0;
+}
+
+div.logo {
+    background-image: url('../images/simpli.png');
+    background-repeat: no-repeat;
+    height: 39px;
+    width: 130px;
+    margin:auto;
+}
+
+div.logo:hover {
+    cursor:pointer;
+}
+
+.clr-b {
+    clear:both;
+}
+
+.full-w {
+    width:100%;
+}
+
+.cntr-child {
+    text-align:center;
+}
+
+.o-auto {
+    overflow:auto;
+}
+
+div.v-gp1 {
+    width:100%;
+    height:15px;
+    clear:both;
+}
+
+div.v-gp2 {
+    width:100%;
+    height:25px;
+    clear:both;
+}
+
+.bookmark-container {
+    width:100%;
+    overflow:auto;
+    display:table-row;
+}
+
+div.edit-outer {
+    float:left;
+    margin-left:20px;
+    padding:8px;
+    border:1px solid #BBB;
+    background-color: #DDD;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px;
+}
+
+div.edit-inner {
+    background-image: url('../images/pencil16.png');
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 16px;
+}
+
+div.edit-outer:hover {
+    cursor:pointer;
+    background-color: #CCC;    
+}
+
+div.bookmark {
+    width:80%;
+}
+
+div.close {
+    font-size: 30px;
+    opacity:0.5;
+    width:5%;
+    color:#ffa500;
+}
+
+div.close:hover {
+    cursor:pointer;
+    opacity:0.8;
+}
+
+a {
+    color:#FB890A;
+    text-decoration:none;
+}
+
+.menu > li > a {
+    font-size:20px;
+}
+
+.menu > li.active, .menu > li.active > a{
+    background-color:#217BC7 !important;
+    color:#0A3151 !important;
+}
+
+.bookmark > a {
+    font-size: 18px;
+    color: #666;
+}
+
+.bookmark > a:hover {
+    color:#FB890A;
+    text-decoration:underline;
+}
+
+.menu > li {
+    list-style: none;
+    padding: 15px 30px;
+}
+
+.menu > li:hover {
+    cursor:pointer;
+    background-color:#217BC7;
+}
+
+div.addmore {
+    color:#666;
+    font-size:20px;
+    margin:0 20px;
+}
+
+div.addmore:hover {
+    cursor:pointer;
+    color:#333;
+}
+
+.form-grp1 {
+    margin:20px 50px;
+}
+
+.form-grp1 > label {
+    display:block;
+    font-weight:bold;
+}
+
+.form-grp1 > input[type='text'] {
+    width: 100%;
+    margin: 5px 0;
+    padding: 5px;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+}
+
+.form-grp1 > button {
+    padding: 5px;
+    min-width: 80px;
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.form-grp1 > .btn-cancel {
+    float:right;
+    background-color: #DDD;
+}
+
+.form-grp1 > .btn-submit {
+    background-color: #217BC7;
+    color: #FFF;
+    border-color: #217BC7;
+}
+
+div.bookmark-container .active {
+    background-color: #217BC7;
+}
